@@ -23,7 +23,7 @@ import HelloVno from './components/HelloVno.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HelloVno
   }
 }
 </script>
