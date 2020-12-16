@@ -227,5 +227,4 @@ ensureFile("src/server.ts")
 });
 
 console.log('writing App.vue')
-//updated
-console.log('All Done')
+
