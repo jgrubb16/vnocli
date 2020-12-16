@@ -11,7 +11,8 @@ const progress = new ProgressBar({
   total,
   complete: bgGreen(" "),
   incomplete: bgWhite(" "),
-  display: ':completed/:total hello :time [:bar] :percent'
+  display: ':completed/:total hello :time [:bar] :percent',
+  clear: true,
   // or => 
   // display: ':bar'
   // display: ':bar :time'
