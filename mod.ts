@@ -1,4 +1,38 @@
 import { ensureDir, ensureFile } from "https://deno.land/std/fs/mod.ts"; 
+import ProgressBar from "https://deno.land/x/progress@v1.2.3/mod.ts";
+import {
+    bgGreen,
+    bgWhite,
+  } from "https://deno.land/std@0.74.0/fmt/colors.ts";
+
+const total = 100;
+const progress = new ProgressBar({
+  total,
+  complete: bgGreen(" "),
+  incomplete: bgWhite(" "),
+  display: ':completed/:total hello :time [:bar] :percent'
+  // or => 
+  // display: ':bar'
+  // display: ':bar :time'
+  // display: '[:bar]'
+  // display: 'hello :bar world'
+  // ...
+});
+let completed = 0;
+function run() {
+  if (completed <= total) {
+    progress.render(completed++);
+
+    setTimeout(function () {
+      run();
+    }, 20)
+  }
+}
+run();
+
+
+
+
 console.log( `Writing parent component app.vue` );
 
 const App: string = 
