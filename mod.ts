@@ -176,7 +176,6 @@ export {
 // dotenv
 export { config } from "https://deno.land/x/dotenv/mod.ts";
 `
-// const logo: any = Deno.readFile('./image/logo.png')
 const appPath: string = "./src/";
 const componentPath: string = "./src/components/"
 
@@ -214,16 +213,11 @@ ensureFile("src/deps.ts")
     console.info("Done writing deps file!");
 });
 
-// ensureFile("src/assets/logo.png")
-//   .then(() => {
-//     Deno.writeTextFile("src/assets/logo", logo);
-//     console.info("Done writing logo.png");
-// });
 
 ensureFile("src/components/HelloVno.vue")
   .then(() => {
     Deno.writeTextFile("src/components/HelloVno.vue", helloVno);
-    console.info("Done writing logo.png");
+    console.info("Done writing");
 });
 
 ensureFile("src/server.ts")
