@@ -176,8 +176,8 @@ export {
 // dotenv
 export { config } from "https://deno.land/x/dotenv/mod.ts";
 `
-const appPath: string = "./src/";
-const componentPath: string = "./src/components/"
+const appPath: string = "./";
+const componentPath: string = "./components/"
 
 
 ensureDir('public')
@@ -186,12 +186,9 @@ ensureDir('public')
 ensureDir('components')
    console.log('Done writing component dir!')
 
-ensureDir('src/assets')
+ensureDir('assets')
 console.log('Done writing assets dir!')
 
-
-// ensureDir('dist')
-// console.log('Done writing dist dir!')
 
 ensureFile("App.vue")
   .then(() => {
