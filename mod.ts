@@ -38,7 +38,7 @@ const helloVno: string =
   <h1>{{ msg }}</h1>
   <p>
     For a guide and preview of our osLabs repo<br>
-    check out 
+    check out &nbsp;
     <a href="https://github.com/oslabs-beta/vno" target="_blank" rel="noopener">  vue-cli documentation</a>.
   </p>
   // <h3>Installed CLI Plugins</h3>
