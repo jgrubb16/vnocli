@@ -168,7 +168,7 @@ const componentPath: string = "./src/components/"
 ensureDir('src')
     console.info("Done writing root component dir!");
 
-ensureDir('public')
+ensureDir('src/public')
     console.info("Done writing public dir!");
 
 ensureDir('src/components')
@@ -187,7 +187,7 @@ ensureFile("src/App.vue")
     console.info("Done writing App component!");
 });
 
-ensureFile("public/index.html")
+ensureFile("src/public/index.html")
   .then(() => {
     Deno.writeTextFile("public/index.html", html);
     console.info("Done writing html file!");
