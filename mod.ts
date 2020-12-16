@@ -75,7 +75,7 @@ a {
 const App: string = 
 `<template>
 <div id="app">
-<img alt="vno logo" src="https://i.ibb.co/9qdtC6P/logo.png" width='400' height='401'>
+<a href="https://ibb.co/mHwdLSK"><img src="https://i.ibb.co/4jGC6JL/image.png" alt="image" border="0"></a>
 <HelloVno msg="Welcome to vno!"/>
 </div>
 </template>
