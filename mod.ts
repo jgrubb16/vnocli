@@ -1,9 +1,6 @@
 import ProgressBar from "https://deno.land/x/progress@v1.2.3/mod.ts";
+
 import { ensureDir, ensureFile } from "https://deno.land/std/fs/mod.ts"; 
-import {
-  bgGreen,
-  bgWhite,
-} from "https://deno.land/std@0.74.0/fmt/colors.ts";
 
 const total = 100;
 const progress = new ProgressBar({
@@ -36,7 +33,7 @@ const helloVno: string =
 <div class="hello">
   <h1>{{ msg }}</h1>
   <p>
-    For a guide and preview of our OSLabs repo<br>
+    For a guide and preview of our osLabs repo<br>
     check out 
     <a href="https://github.com/oslabs-beta/vno" target="_blank" rel="noopener">vue-cli documentation</a>.
   </p>
@@ -46,8 +43,16 @@ const helloVno: string =
   </ul>
 </div>
 </template>
-
-<style scoped>
+<script>
+export default {
+  name: 'HelloVno',
+  props: {
+    msg: String
+  },
+}
+}
+</script>
+<style>
 h3 {
   margin: 40px 0 0;
 }
@@ -66,31 +71,18 @@ a {
 
 const App: string = 
 `<template>
-<img alt="Vue logo" href="https://ibb.co/9qdtC6P">
-<HelloWorld msg="Welcome to Your vno!"/>
-</template>
-
-<template>
-<div class="hello">
-  <h1>{{ msg }}</h1>
-  <p>
-    For a guide and preview of our OSLabs repo<br>
-    check out 
-    <a href="https://github.com/oslabs-beta/vno" target="_blank" rel="noopener">vue-cli documentation</a>.
-  </p>
-  <h3>Installed CLI Plugins</h3>
-  <ul>
-    <li><a href="https://github.com/jgrubb16/vnocli" target="_blank" rel="noopener">babel</a></li>
-  </ul>
+<div id="app">
+<img alt="vno logo" href="https://ibb.co/9qdtC6P">
+<HelloVno msg="Welcome to vno!"/>
 </div>
 </template>
 <script>
 import HelloVno from './components/HelloVno.vue'
 
 export default {
-  name: 'App',
+  name: 'app',
   components: {
-    HelloWorld
+    HelloVno
   }
 }
 </script>
@@ -128,8 +120,8 @@ const html =
 `
 
 const server: string = `import { Application, join, log, send } from "./deps.ts";
-import vno from "https://raw.githubusercontent.com/jgrubb16/vno/cliserve/src/strategies/renderer.ts";
-import parser from "https://raw.githubusercontent.com/jgrubb16/vno/cliserve/src/strategies/parser.ts"
+import vno from "../../src/strategies/renderer.ts";
+
 const port: number = 3000;
 const server: Application = new Application();
 
@@ -144,34 +136,6 @@ server.use(async (context: any) => {
     root: Deno.cwd(),
     index: "index.html",
   });
-});
-
-
-const html = vno.createRenderer({
-  title: "test",
-  root: "app",
-}, vno.root);
-
-console.log(html, vno.root);
-
-server.use(async (ctx, next) => {
-  const filePath = ctx.request.url.pathname;
-  if (filePath === "/") {
-    ctx.response.type = "text/html";
-    ctx.response.body = html;
-  } else if (filePath === "/build.js") {
-    ctx.response.type = "application/javascript";
-    await send(ctx, filePath, {
-      root: join(Deno.cwd(), "vno-build"),
-      index: "build.js",
-    });
-  } else if (filePath === "/style.css") {
-    ctx.response.type = "text/css";
-    await send(ctx, filePath, {
-      root: join(Deno.cwd(), "vno-build"),
-      index: "style.css",
-    });
-  } else await next();
 });
 
 if (import.meta.main) {
