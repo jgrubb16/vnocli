@@ -94,11 +94,6 @@ ensureDir('public')
 ensureDir('src/components')
    console.log('dont writing component dir!')
 
-// ensureDir('vno-build')
-//    console.log('dont writing build dir!')
-
-//    await Deno.writeTextFile("src/App.vue", App);
-//         console.info("Done!");
 ensureFile("src/App.vue")
   .then(() => {
     Deno.writeTextFile("src/App.vue", App);
@@ -111,16 +106,5 @@ ensureFile("public/index.html")
     console.info("Done writing html file!");
 });
 
-// ensureFile("vno-build/build.js")
-//   .then(() => {
-//     Deno.writeTextFile("vno-build/build.js", '/*Build files written here*/');
-//     console.info("Done writing build file!");
-// });
-
-// ensureFile("vno-build/style.css")
-//   .then(() => {
-//     Deno.writeTextFile("vno-build/style.css", '/*Style written here*/');
-//     console.info("Done writing Style file!");
-// });
 
 console.log('writing App.vue')
