@@ -179,13 +179,11 @@ export { config } from "https://deno.land/x/dotenv/mod.ts";
 const appPath: string = "./src/";
 const componentPath: string = "./src/components/"
 
-ensureDir('src')
-    console.info("Done writing root component dir!");
 
-ensureDir('src/public')
+ensureDir('public')
     console.info("Done writing public dir!");
 
-ensureDir('src/components')
+ensureDir('components')
    console.log('Done writing component dir!')
 
 ensureDir('src/assets')
@@ -195,34 +193,34 @@ console.log('Done writing assets dir!')
 // ensureDir('dist')
 // console.log('Done writing dist dir!')
 
-ensureFile("src/App.vue")
+ensureFile("App.vue")
   .then(() => {
-    Deno.writeTextFile("src/App.vue", App);
+    Deno.writeTextFile("App.vue", App);
     console.info("Done writing App component!");
 });
 
-ensureFile("src/public/index.html")
+ensureFile("public/index.html")
   .then(() => {
     Deno.writeTextFile("public/index.html", html);
     console.info("Done writing html file!");
 });
 
-ensureFile("src/deps.ts")
+ensureFile("deps.ts")
   .then(() => {
-    Deno.writeTextFile("src/deps.ts", deps);
+    Deno.writeTextFile("deps.ts", deps);
     console.info("Done writing deps file!");
 });
 
 
-ensureFile("src/components/HelloVno.vue")
+ensureFile("components/HelloVno.vue")
   .then(() => {
-    Deno.writeTextFile("src/components/HelloVno.vue", helloVno);
+    Deno.writeTextFile("components/HelloVno.vue", helloVno);
     console.info("Done writing");
 });
 
-ensureFile("src/server.ts")
+ensureFile("server.ts")
   .then(() => {
-    Deno.writeTextFile("src/server.ts", server);
+    Deno.writeTextFile("server.ts", server);
     console.info("Done writing server");
 });
 
