@@ -54,7 +54,6 @@ export default {
     msg: String
   },
 }
-}
 </script>
 <style>
 h3 {
