@@ -41,10 +41,6 @@ const helloVno: string =
     check out 
     <a href="https://github.com/oslabs-beta/vno" target="_blank" rel="noopener">&nbsp;vue-cli documentation</a>.
   </p>
-  // <h3>Installed CLI Plugins</h3>
-  // <ul>
-  //   <li><a href="https://github.com/jgrubb16/vnocli" target="_blank" rel="noopener">babel</a></li>
-  // </ul>
 </div>
 </template>
 <script>
