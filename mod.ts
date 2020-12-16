@@ -128,8 +128,8 @@ const html =
 `
 
 const server: string = `import { Application, join, log, send } from "./deps.ts";
-import vno from "https://github.com/oslabs-beta/vno/blob/main/src/strategies/renderer.ts";
-
+import vno from "https://raw.githubusercontent.com/jgrubb16/vno/cliserve/src/strategies/renderer.ts";
+import parser from "https://raw.githubusercontent.com/jgrubb16/vno/cliserve/src/strategies/parser.ts"
 const port: number = 3000;
 const server: Application = new Application();
 
