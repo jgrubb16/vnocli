@@ -179,7 +179,9 @@ const App: string =
     <Purple />
   </body>
   <body v-else>
-    <h1>Welcome to VNO</h1>
+    <h1>Welcome to Your vno Project</h1>
+    <h2>For more information on how to configure, check out our GitHub>
+    <
     </body>
 </div>
 </template>
@@ -262,6 +264,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
+}
 }`
 
 const html =
@@ -290,12 +293,6 @@ import vno from "../src/strategies/renderer.ts";
 
 const port: number = 3000;
 const server: Application = new Application();
-
-await vno.config({
-  label: "App",
-  entry: "./",
-  cdn: "https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.esm.browser.js",
-});
 
 server.use(async (ctx, next) => {
   const filePath = ctx.request.url.pathname;
@@ -382,10 +379,12 @@ ensureFile("components/Orange.vue")
     Deno.writeTextFile("components/Orange.vue", Orange);
     console.info("Done writing");
   });
+
 ensureFile('components/Green.vue').then(() => {
   Deno.writeTextFile('components/Green.vue', Green);
   console.info('Done writing');
 });
+
 ensureFile('components/Purple').then(() => {
   Deno.writeTextFile('components/Purple.vue', Purple);
   console.info('Done writing');
