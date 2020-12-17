@@ -226,7 +226,7 @@ body {
   }
   .header {
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: column;
     align-items: center;
     justify-content: center;
   }
