@@ -180,8 +180,15 @@ const App: string =
   </body>
   <body v-else>
     <h1>Welcome to Your vno Project</h1>
-    <h2>For more information on how to configure, check out our GitHub>
-    <
+    <p>
+    For a guide on project customization,<br>
+    check out out GitHub repo at: 
+    <a href="https://github.com/oslabs-beta/vno" target="_blank" rel="noopener">&nbsp;vno documentation</a>.
+  </p>
+  <h3>Installed CLI Plugins</h3>
+  <ul>
+  <li><a href="https://github.com/jgrubb16/vnocli" target="_blank" rel="noopener">babel</a></li>
+  </ul>
     </body>
 </div>
 </template>
