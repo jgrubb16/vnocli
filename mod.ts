@@ -33,74 +33,236 @@ function run() {
 run();
 
 console.log( `Writing parent component app.vue` );
-const helloVno: string = 
+const Green: string = 
 `<template>
-<div class="hello">
-  <h1>{{ msg }}</h1>
+<div id="green">
+  <h1>Mikey</h1>
+  <a href="https://imgbb.com/"
+    ><img src="https://i.ibb.co/Lz6jw4b/mikey.png" alt="mikey" border="0"
+  /></a>
   <p>
-    For a guide and preview of our osLabs repo<br>
-    check out 
-    <a href="https://github.com/oslabs-beta/vno" target="_blank" rel="noopener">&nbsp;vno documentation</a>.
+    Mikey is a certified Sommolier. That means he knows a lot more about wine
+    &nbsp;than you do. Also Sake.
   </p>
-  <h3>Installed CLI Plugins</h3>
-  <ul>
-  <li><a href="https://github.com/jgrubb16/vnocli" target="_blank" rel="noopener">babel</a></li>
-  </ul>
 </div>
 </template>
+
 <script>
 export default {
-  name: 'HelloVno',
-  props: {
-    msg: String
-  },
-}
+name: 'green',
+data() {
+  return {
+    color: 'green',
+  };
+},
+};
 </script>
+
 <style>
-h3 {
-  margin: 40px 0 0;
+#green {
+background-color: chartreuse;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+</style>
+`
+const Orange: string = 
+`<template>
+<div id="orange">
+  <h1>Jordan</h1>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/m46njhp/jordan.png" alt="jordan" border="0" /></a>
+<p>Jordan has worked on Broadway! So, yes, he has much sass!</p>
+</template>
+
+<script>
+export default {
+name: 'orange',
+data() {
+  return {
+    color: 'orange',
+  };
+},
+};
+</script>
+
+<style>
+.orange {
+color: orange;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #79D0B2;
+</style>
+`
+
+const Red: string = 
+`<template>
+<div id="red">
+  <h1>Andrew</h1>
+  <a href="https://imgbb.com/"
+    ><img src="https://i.ibb.co/cxPPLvy/andrew.png" alt="andrew" border="0"
+  /></a>
+  <p>
+    Andrew is a classically trained flutist. He's a boss ass bitch who don't
+    &nbsp; take no shit
+  </p>
+</div>
+</template>
+
+<script>
+export default {
+name: 'red',
+data() {
+  return {
+    color: 'red',
+  };
+},
+};
+</script>
+
+<style>
+#red {
+background-color: red;
 }
 </style>`
+
+const Purple: string = 
+`<template>
+<div id="purple">
+  <h1>Kyle</h1>
+  <a href="https://imgbb.com/"
+    ><img src="https://i.ibb.co/6rxv4gC/kyle.png" alt="kyle" border="0"
+  /></a>
+  <p>Kyle (aka Grandpa Kyle) is here to party</p>
+</div>
+</template>
+
+<script>
+export default {
+name: 'purple',
+data() {
+  return {
+    color: 'purple',
+  };
+},
+};
+</script>
+
+<style>
+#purple {
+background-color: blueviolet;
+}
+</style>
+`
 
 const App: string = 
 `<template>
 <div id="app">
-<a href="https://ibb.co/mHwdLSK"><img src="https://i.ibb.co/4jGC6JL/image.png" alt="image" border="0" width="450" height="450"></a>
-<HelloVno msg="Welcome to vno!"/>
+  <header class="header">
+      <img class="logo" src='https://svgshare.com/i/SNz.svg' alt="logo" />
+      <br>
+    <nav class="inner">
+      <button v-on:click="handelClick('green')">Mikey</button>
+      <button v-on:click="handelClick('orange')">Jordan</button>
+      <button v-on:click="handelClick('purple')">Kyle</button>
+      <button v-on:click="handelClick('red')">Andrew</button>
+      <a class="github" href="https://github.com/oslabs-beta/vno" target="_blank"
+        ><button>Github</button>
+      </a>
+    </nav>
+  </header>
+  <body v-if="displayedComponent === 'red'">
+    <Red/>
+  </body>
+  <body v-else-if="displayedComponent === 'green'">
+    <Green />
+  </body>
+  <body v-else-if="displayedComponent === 'orange'">
+    <Orange />
+  </body>
+  <body v-else-if="displayedComponent === 'purple'">
+    <Purple />
+  </body>
+  <body v-else>
+    <h1>Welcome to VNO</h1>
+    </body>
 </div>
 </template>
-<script>
-import HelloVno from './components/HelloVno.vue'
 
+<script>
+import Red from './components/Red'
+import Green from './components/Green'
+import Orange from './components/Orange'
+import Purple from './components/Purple'
 export default {
-  name: 'app',
-  components: {
-    HelloVno
+name: 'app',
+data() {
+  return {
+    displayedComponent : ''
+  };
+},
+methods: {
+  handelClick: function(event) {
+    this.displayedComponent = event;
+    console.log(this.displayedComponent)
   }
+},
+components: {
+  Red,
+  Green,
+  Orange,
+  Purple,
 }
+};
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #79D0B2;
-  margin-top: 60px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background-color: #34495e;
+color: aliceblue;
+padding-bottom: 10px;
+padding-top: 20px;
+align-content: space-around;
 }
-</style>`
+.logo{
+padding: 20px;
+}
+.inner {
+display: flex;
+flex-direction: row;
+justify-content: center;
+}
+button {
+color: #34495e;
+background-color: #57D3AF;
+padding: 5px;
+text-size-adjust: auto;
+border-radius: 15px;
+margin: 10px;
+}
+#green {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+#red {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+#orange {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+#purple {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}`
 
 const html =
 `<!DOCTYPE html>
@@ -209,17 +371,29 @@ ensureFile("deps.ts")
     console.info("Done writing deps file!");
 });
 
-
-ensureFile("components/HelloVno.vue")
+ensureFile("components/Red.vue")
   .then(() => {
-    Deno.writeTextFile("components/HelloVno.vue", helloVno);
+    Deno.writeTextFile("components/Red.vue", Red);
     console.info("Done writing");
+  });
+
+ensureFile("components/Orange.vue")
+  .then(() => {
+    Deno.writeTextFile("components/Orange.vue", Orange);
+    console.info("Done writing");
+  });
+ensureFile('components/Green.vue').then(() => {
+  Deno.writeTextFile('components/Green.vue', Green);
+  console.info('Done writing');
+});
+ensureFile('components/Purple').then(() => {
+  Deno.writeTextFile('components/Purple.vue', Purple);
+  console.info('Done writing');
 });
 
-ensureFile("server.ts")
-  .then(() => {
-    Deno.writeTextFile("server.ts", server);
-    console.info("Done writing server");
+ensureFile('server.ts').then(() => {
+  Deno.writeTextFile('server.ts', server);
+  console.info('Done writing server');
 });
 
 console.log('writing App.vue')
