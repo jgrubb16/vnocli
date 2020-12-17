@@ -60,7 +60,9 @@ data() {
 
 <style>
 #green {
-background-color: chartreuse;
+background-color: #DAF7A6;
+padding: 25px;
+color: #34495e;
 }
 </style>
 `
@@ -84,8 +86,8 @@ data() {
 </script>
 
 <style>
-.orange {
-color: orange;
+#orange {
+background-color: #57D3AF;
 }
 </style>
 `
@@ -117,7 +119,7 @@ data() {
 
 <style>
 #red {
-background-color: red;
+background-color: maroon;
 }
 </style>`
 
@@ -154,8 +156,7 @@ const App: string =
 `<template>
 <div id="app">
   <header class="header">
-      <img class="logo" src='https://svgshare.com/i/SNz.svg' alt="logo" />
-      <br>
+    <img class="logo" src='https://svgshare.com/i/SNz.svg' alt="logo" />
     <nav class="inner">
       <button v-on:click="handelClick('green')">Mikey</button>
       <button v-on:click="handelClick('orange')">Jordan</button>
@@ -185,9 +186,8 @@ const App: string =
     check out out GitHub repo at: 
     <a href="https://github.com/oslabs-beta/vno" target="_blank" rel="noopener">&nbsp;vno documentation</a>.
   </p>
-  <h3>Installed CLI Plugins</h3>
   <ul>
-  <li><a href="https://github.com/jgrubb16/vnocli" target="_blank" rel="noopener">babel</a></li>
+  <li><a href="https://github.com/jgrubb16/vnocli" target="_blank" rel="noopener">Open Source CLI Tool</a></li>
   </ul>
     </body>
 </div>
@@ -221,6 +221,15 @@ components: {
 </script>
 
 <style>
+body {
+  background-color: #34495e;
+  }
+  .header {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+  }
 #app {
 display: flex;
 flex-direction: column;
